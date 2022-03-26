@@ -1,9 +1,16 @@
 <template>
   <div>
-      <BotonsComp v-bind:textButton="Anterior" @clickDone="activeSentence"></BotonsComp>
-      <BotonsComp v-bind:textButton="Siguiente" @clickDone="activeSentence"></BotonsComp>
-      <EscenaComp v-bind:textosTutorial="textos" v-bind:Activa="currentSentence"></EscenaComp>
-      
+      <div v-if="iniciar===false">
+          <h1>Bienvenido a este tutorial</h1>
+          <p>Clicando en los botones podrás avanzar o retroceder en las instrucciones</p>
+          <p>¿Empezamos?</p>
+          <button @click="comenzar" >Comenzar</button>
+      </div>
+      <div v-if="iniciar===true">
+        <BotonsComp v-bind:textButton="Anterior" @clickDone="activeSentence"></BotonsComp>
+        <BotonsComp v-bind:textButton="Siguiente" @clickDone="activeSentence"></BotonsComp>
+        <EscenaComp v-bind:textosTutorial="textos" v-bind:Activa="currentSentence"></EscenaComp>
+      </div>
   </div>
 </template>
 
@@ -28,7 +35,8 @@ export default {
                 ],
             Siguiente:'Següent',
             Anterior:'Anterior',
-            currentSentence:0
+            currentSentence:0,
+            iniciar:false
         }    
     },
     methods:{
@@ -38,6 +46,9 @@ export default {
             }else{
                 this.currentSentence--
             }
+        },
+        comenzar(){
+            this.iniciar=true
         }
     },
     watch:{

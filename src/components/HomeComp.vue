@@ -17,6 +17,7 @@
 <script>
 import EscenaComp from '@/components/EscenaComp.vue'
 import BotonsComp from '@/components/BotonsComp.vue'
+import textos2 from '@/assets/js/sentences.js'
 
 
 
@@ -28,15 +29,12 @@ export default {
     },
     data(){
         return{
-             textos:["El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial",
-                "Sentia curiositat per l'interior de la nau i es va posar a inspeccionar-la. Va arribar a una sala amb dues portes.",
-                "L'heroi va decidir travessar la porta que el portava a casa",
-                "Mentrestant, altres heroes no van tenir tanta sort en la seva elecció ..."
-                ],
+            
             Siguiente:'Següent',
             Anterior:'Anterior',
             currentSentence:0,
-            iniciar:false
+            iniciar:false,
+            textos:textos2
         }    
     },
     methods:{
@@ -59,7 +57,8 @@ export default {
                 this.currentSentence=3
             }
         }
-    }
+    },
+    
 }
 </script>
 
